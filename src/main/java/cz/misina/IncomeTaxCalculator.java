@@ -2,21 +2,21 @@ package cz.misina;
 
 public class IncomeTaxCalculator {
 
-    class IncomeTaxBracket {
+    private class IncomeTaxBracket {
         private double min;
         private double max;
         private double taxPercentage;
         private double fixedAmount;
 
-        public double tax(double amount) {
+        double tax(double amount) {
             return (amount - min) * taxPercentage + fixedAmount;
         }
 
-        public boolean isAmountWithin(double amount) {
+        boolean isAmountWithin(double amount) {
             return (amount >= min && amount < max);
         }
 
-        public IncomeTaxBracket(double min, double max, double taxPercentage, double fixedAmount) {
+        IncomeTaxBracket(double min, double max, double taxPercentage, double fixedAmount) {
             this.min = min;
             this.max = max;
             this.taxPercentage = taxPercentage;
