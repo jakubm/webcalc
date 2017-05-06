@@ -12,7 +12,7 @@ public class IncomeTaxCalculator {
             return (amount - min) * taxPercentage + fixedAmount;
         }
 
-        public boolean within(double amount) {
+        public boolean isAmountWithin(double amount) {
             return (amount >= min && amount < max);
         }
 
@@ -34,7 +34,7 @@ public class IncomeTaxCalculator {
 
     public double getTaxFor(double income) {
         for (IncomeTaxBracket bracket: brackets)
-            if (bracket.within(income))
+            if (bracket.isAmountWithin(income))
                 return bracket.tax(income);
         return 0;
     }
